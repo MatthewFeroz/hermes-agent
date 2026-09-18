@@ -153,6 +153,8 @@ model:
 
 Use a fully qualified `provider/model` ID instead of `default_routing` when you want a specific model. Hermes connects to Gateway's OpenAI-compatible endpoint at `https://api-gateway.merge.dev/v1/openai`, discovers the paginated catalog from `GET /v1/models`, and only shows models with an available tool-calling route.
 
+To use a custom Gateway host, set `model.base_url` to its OpenAI-compatible endpoint. Model discovery uses the same host, and changing the URL refreshes the model picker's cached catalog.
+
 :::tip Routing policies and tool use
 `default_routing` delegates model and vendor selection to the routing policy attached to your organization or project API key. For agent sessions, make sure that policy can select a route whose `capabilities.supports_tool_calling` value is `true`; choosing an explicit model from Hermes's filtered picker guarantees that the catalog advertised at least one such route.
 :::
